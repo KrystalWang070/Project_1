@@ -1,40 +1,29 @@
-#Group Project Proposal
+<h1>Group Project Proposal<h1>
 
-#Project Title - Language Exploration in U.S.
+<h2>Project Title - Language Exploration in U.S.</h2>
 
-#Team Members: Michael Kuhn, Nathan Dieck, Krystal Wang
+<h3>Team Members: Michael Kuhn, Nathan Dieck, Krystal Wang</h3>
 
-#Project Description/Outline: The project will study the geographic distribution of speakers of various major languages in the United States.
+<p>Project Description/Outline: The project will study the geographic distribution of speakers of various major languages in the United States.</p>
 
-#Research Questions to Answer:
+<h4>Research Questions to Answer:</h4>
 
-1. Percentage Check for English vs. Non-English households in U.S.- 
+<ul>
+<li>Percentage Check for English vs. Non-English households in U.S.- What percentage of households in each US state speak only English at home?</li> 
+<li>Visualization: Bar chart for all states or a sample of states. What percentage of households in each US state speak a language other than English at home?</li> 
+<li>Visualization: Bar chart for all states or a sample of states.</li>
+<li>More Explorations for Specific Languages Spoken at home in U.S.</li> 
+<li>What is the geographic distribution of people who speak English, Spanish, Arabic, Hindi, and Chinese? At home.</li>
+<li>Visualization per language (5-6): Heatmap/county-shaded-map of people who speak the language at home by state or by county if possible.</li>
+<li>What number of households speak English, Spanish, Arabic, Hindi, and Chinese at home?</li>
+<li>Visualization: Bar chart covering the five languages. Are there any counties where a majority of hh speak a language other than english at home?</li>
+<li>Cook County Case - Breakdown of languages spoken in cook county??? Visualization: Pie Chart?</li>
+</ul>
 
-1). What percentage of households in each US state speak only English at home? Visualization: Bar chart for all states or a sample of states. 
+**Dataset to be used Language Statistics**: ACS (2013) (https://www.census.gov/data/developers/data-sets/language-stats.html)
 
-2). What percentage of households in each US state speak a language other than English at home? Visualization: Bar chart for all states or a sample of states.
-
-2. More Explorations for Specific Languages Spoken at home in U.S.- 
-
-1). What is the geographic distribution of people who speak English, Spanish, Arabic, Hindi, and Chinese? At home. Visualization per language (5-6): Heatmap/county-shaded-map of people who speak the language at home by state or by county if possible.
-
-
-2). What number of households speak English, Spanish, Arabic, Hindi, and Chinese at home?
-Visualization: Bar chart covering the five languages. Are there any counties where a majority of hh speak a language other than english at home?
-
-3. Cook County Case - Breakdown of languages spoken in cook county??? Visualization: Pie Chart?
-
-
-#Dataset to be used Language Statistics: 
-
-ACS (2013) (https://www.census.gov/data/developers/data-sets/language-stats.html)
-
-#Breakdown of Tasks 
-
-1. Collect the datasets used for the research questions using census API. 
-
-2. Create Language/County dataframe: We need to develop a list of the counties surveyed or otherwise create a list of counties we’re going to use using FIPS codes (to work with the census database) 
-
-3. Clean Data 
-
-4. Implement integration with gmaps for heatmap functionality
+<ul>Breakdown of Tasks Collect the datasets used for the research questions using census API.
+<li>Create Language/County dataframe: We need to develop a list of the counties surveyed or otherwise create a list of counties we’re going to use using FIPS codes (to work with the census database)</li>
+  <li>Clean Data </li>
+  <li>Implement integration with gmaps for heatmap functionality</li>
+</ul>
