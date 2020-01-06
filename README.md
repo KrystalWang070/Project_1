@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# Project_1
+
+=======
 <h1>Group Project Proposal<h1>
 
 <h2>Project Title - Language Exploration in U.S.</h2>
@@ -27,3 +31,4 @@
   <li>Clean Data </li>
   <li>Implement integration with gmaps for heatmap functionality</li>
 </ul>
+>>>>>>> d2c370884101f1ee06b9bf9e5c73f2eaf7295ed3
