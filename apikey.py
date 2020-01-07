@@ -1,2 +1,1 @@
-#Nate's API Key for the Census
-api_key = "2ee8b5923d3a2a37d14bbcf9955d282fb9b1f3f5"
+api_key = "39a8090fc8ce00f64af354bf5286611974737d30"
