@@ -61,3 +61,17 @@ def shade_lan(fips, df, other_pct=False):
         else:
             colors.append("#AAAAAA")
     return colors
+
+def kwikplt(pop,lan):
+    from scipy.stats import linregress
+    from matplotlib import pyplot as plt
+    import matplotlib.lines as mlines
+    m,b,_,_,_ = linregress(pop,lan)
+    min_pop = min(pop)
+    max_pop = max(pop)
+    min_pct = m*min_pop+b
+    max_pct = m*max_pop+b
+    l = mlines.Line2D([min_pop,max_pop],[min_pct,max_pct],color='orange')
+    plt.scatter(pop,lan)
+    ax = plt.gca()
+    ax.add_line(l)

@@ -1,3 +1,17 @@
+'''
+#Map created via:
+c = shade_pct(fips_ls, df, "chinese")
+
+fig = gmaps.figure()
+pct_layer = gmaps.geojson_layer(counties_geojson, stroke_weight = 0.5,
+                                fill_color=c, fill_opacity=0.5)
+state_layer = gmaps.geojson_layer(state_geojson, stroke_weight = 2,
+                                  fill_opacity=0)
+fig.add_layer(pct_layer)
+fig.add_layer(state_layer)
+fig
+'''
+
 def shade_pct(fips, df, language):
     colors = []
     counties = []
@@ -47,3 +61,17 @@ def shade_lan(fips, df, other_pct=False):
         else:
             colors.append("#AAAAAA")
     return colors
+
+def kwikplt(pop,lan):
+    from scipy.stats import linregress
+    from matplotlib import pyplot as plt
+    import matplotlib.lines as mlines
+    m,b,_,_,_ = linregress(pop,lan)
+    min_pop = min(pop)
+    max_pop = max(pop)
+    min_pct = m*min_pop+b
+    max_pct = m*max_pop+b
+    l = mlines.Line2D([min_pop,max_pop],[min_pct,max_pct],color='orange')
+    plt.scatter(pop,lan)
+    ax = plt.gca()
+    ax.add_line(l)
