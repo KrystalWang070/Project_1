@@ -1,3 +1,17 @@
+'''
+#Map created via:
+c = shade_pct(fips_ls, df, "chinese")
+
+fig = gmaps.figure()
+pct_layer = gmaps.geojson_layer(counties_geojson, stroke_weight = 0.5,
+                                fill_color=c, fill_opacity=0.5)
+state_layer = gmaps.geojson_layer(state_geojson, stroke_weight = 2,
+                                  fill_opacity=0)
+fig.add_layer(pct_layer)
+fig.add_layer(state_layer)
+fig
+'''
+
 def shade_pct(fips, df, language):
     colors = []
     counties = []
