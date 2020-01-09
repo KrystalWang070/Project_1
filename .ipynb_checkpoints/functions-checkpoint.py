@@ -120,7 +120,10 @@ def kwikplt(pop,lan):
     from scipy.stats import linregress
     from matplotlib import pyplot as plt
     import matplotlib.lines as mlines
-    m,b,_,_,_ = linregress(pop,lan)
+    m,b,r,p,_ = linregress(pop,lan)
+    print(F"Line Equation: y = {m}*X+{b}")
+    print(F"R-Squared: {r}")
+    print(F"P-value: {p}")
     min_pop = min(pop)
     max_pop = max(pop)
     min_pct = m*min_pop+b
