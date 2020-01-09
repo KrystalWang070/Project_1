@@ -13,12 +13,29 @@ fig
 '''
 
 def shade_pct(fips, df, language):
+    '''
+    Inputs:
+        fips: list of county codes
+        df: pandas dataframe with language columns 
+        language: string-spanish, french or chinese
+    Algorigthm:
+        initilizes empty lists and determines max percent in language series
+        loops through counties by fips
+        if county is in dataframe:
+            get county pct language speaking
+            color based on percentage of max pct
+            append color to colors list
+        else:
+            color grey (#AAAAAA)
+    Returns:
+        colors: list of colors (hexcode)
+    '''
     colors = []
     counties = []
+    max_pct = max(df[F'pct_{language}'])
     for county in fips:
         if county in list(df.index):
             pct = df.loc[county][F"pct_{language}"]
-            max_pct = max(df[F'pct_{language}'])
             p = pct/max_pct
             if p == 1:
                 gmaps_color = "#60ff30"
@@ -41,6 +58,30 @@ def shade_pct(fips, df, language):
     return colors 
 
 def shade_lan(fips, df, other_pct=False):
+    '''
+    Inputs:
+        fips: list of county codes
+        df: pandas dataframe with languages columns 
+        other_pct: option to compare languages with calculated "other" (default: False)
+    Algorigthm:
+        initilizes empty lists, language:color codes dictionary, and language list
+        loops through county by fip
+            if county is in the dataframe:
+                set gmaps color to white (#FFFFFF) by default
+                initialize plurality language marker to 0
+                if other_pct = True:
+                    set plurality language as the difference between 100 and the sum of the other languages
+                loop through each language
+                    get county pct language speaking
+                    if pct is larger than plurality pct:
+                        set the plurality language to pct
+                        set gmaps_color to language's color
+                append gmaps_color to colors
+            else:
+                append grey (#AAAAAA) to colors
+    Return:
+        colors: list of colors
+    '''
     colors = []
     counties = []
     l_colors = {"spanish":"#FF8E00","french":"#006FFF","chinese":"#FF0000"}
@@ -48,7 +89,6 @@ def shade_lan(fips, df, other_pct=False):
     for county in fips:
         if county in list(df.index):
             gmaps_color = "#FFFFFF"
-            #county_fipps = county["fips"]
             plur_lan = 0
             if other_pct:
                 plur_lan = 100-df.loc[county][F"pct_spanish"]+df.loc[county][F"pct_french"]+df.loc[county][F"pct_chinese"]
@@ -63,6 +103,20 @@ def shade_lan(fips, df, other_pct=False):
     return colors
 
 def kwikplt(pop,lan):
+    '''
+    Inputs:
+        pop: list or series of populations
+        lan: list or series of language spears as a percent of population
+    Algorigthm:
+        runs linear regression
+        sets min and max population (x coordinates)
+        sets min and max percentages (y coordinates)
+        creates line element from min and max x and y coordinates
+        plots scatter from pop and lan list
+        plots line element
+    Returns
+        None: None
+    '''
     from scipy.stats import linregress
     from matplotlib import pyplot as plt
     import matplotlib.lines as mlines
