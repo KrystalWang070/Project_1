@@ -121,9 +121,10 @@ def kwikplt(pop,lan):
     from matplotlib import pyplot as plt
     import matplotlib.lines as mlines
     m,b,r,p,_ = linregress(pop,lan)
-    print(F"Line Equation: y = {m}*X+{b}")
-    print(F"R-Squared: {r}")
-    print(F"P-value: {p}")
+    eq_str = "y = {:.2E}*x + {:.2f}".format(m,b)
+    r_str = "{:.2f}".format(r)
+    p_str = "{:.2E}".format(p)
+    plt.text(40,10,F"Line Equation: {eq_str}\nR-Squared: {r_str}\nP-value{p_str}")
     min_pop = min(pop)
     max_pop = max(pop)
     min_pct = m*min_pop+b
