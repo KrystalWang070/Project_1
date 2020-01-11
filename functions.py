@@ -11,7 +11,7 @@ fig.add_layer(pct_layer)
 fig.add_layer(state_layer)
 fig
 '''
-
+##################################################################################
 def shade_pct(fips, df, language):
     '''
     Inputs:
@@ -56,7 +56,7 @@ def shade_pct(fips, df, language):
         else:
             colors.append("#AAAAAA")
     return colors 
-
+##################################################################################
 def shade_lan(fips, df, other_pct=False):
     '''
     Inputs:
@@ -101,7 +101,7 @@ def shade_lan(fips, df, other_pct=False):
         else:
             colors.append("#AAAAAA")
     return colors
-
+##################################################################################
 def kwikplt(pop,lan):
     '''
     Inputs:
@@ -124,12 +124,12 @@ def kwikplt(pop,lan):
     eq_str = "y = {:.2E}*x + {:.2f}".format(m,b)
     r_str = "{:.2f}".format(r)
     p_str = "{:.2E}".format(p)
-    plt.text(40,10,F"Line Equation: {eq_str}\nR-Squared: {r_str}\nP-value{p_str}")
     min_pop = min(pop)
     max_pop = max(pop)
     min_pct = m*min_pop+b
     max_pct = m*max_pop+b
-    l = mlines.Line2D([min_pop,max_pop],[min_pct,max_pct],color='orange')
-    plt.scatter(pop,lan)
+    l = mlines.Line2D([min_pop,max_pop],[min_pct,max_pct],color='orange', lw=5)
+    plt.scatter(pop,lan, s=200, marker='+')
     ax = plt.gca()
     ax.add_line(l)
+    return eq_str, r_str, p_str
